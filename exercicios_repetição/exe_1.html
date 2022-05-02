@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1</title>
+</head>
+<body>
+    <div id="elementos">/</div>
+    <script>
+        var  caixa = document.getElementById('elementos')
+        caixa.innerHTML = '<ul>'
+
+       // document.write('<ul>')
+        for (var numero = 0; numero <= 10; numero++){
+            console.log(`numero ==> ${numero}`)
+           // document.write(`<li>numero ==> ${numero} </li>`)
+        caixa.innerHTML += `<li>Numero ==> ${numero} </li>`   
+
+        }
+        //document.write('</ul>')
+        caixa.innerHTML += '</ul>'
+    </script>
+
+</body>
+</html>
