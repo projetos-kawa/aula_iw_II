@@ -4,52 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 3</title>
+    <title>EXERCICIO 04</title>
 </head>
 <style>
-    body{
+   body{
         background-color:darkslategrey;
         color: white;
         font: normal 20pt arial;
     }
-</style>
-<body>
-   
-    <script>
-        var n1 = parseFloat(prompt("Digite sua primeira nota parcial:"))
-        var n2 = parseFloat(prompt("Digite sua segunda nota parcial:"))
+    </style>
+     <body>
+        <title>EXERCICIO 04</title>
+    Equação do 2o grau: ax² + bx + c = 0  <br />
+    Coeficiente a:<input id="num1" type="number"> <br />
+    Coeficiente b:<input id="num2" type="number"> <br />
+    Coeficiente c: <input id="num3" type="number"> <br />
+    <button onclick="raiz()">Calcular raízes</button><br />
 
-        var media = (n1+n2)/2
+    <div id='resposta'></div>
 
-        var conceito = ""
+    <script type="text/javascript">
+     function raiz(){
+       var a = parseFloat(document.getElementById("num1").value);
+       var b = parseFloat(document.getElementById("num2").value);
+       var c = parseFloat(document.getElementById("num3").value);
+       ans = document.getElementById('resposta');
 
-        var aprovacao = ""
-        
-        if ((media >= 0) && (media < 4)) {
-            conceito = "E"
-        }
-        else if ((media >= 4) && (media <= 6)) {
-            conceito = "D"
-        }
-        else if ((media >= 6) && (media < 7.5)) {
-            conceito = "C"
-        }
-        else if ((media >= 7.5) && (media < 9)) {
-            conceito = "B"
-        }
-        else if ((media >= 9) && (media = 10)) {
-            conceito = "A"
-        }
+       var delta = (b*b) - 4*a*c;
 
-        if (conceito == "A" || conceito == "B" || conceito == "C") {
-            aprovacao = "APROVADO"
-        }
-        else {
-            aprovacao = "REPROVADO"
-        }
+       if (delta>0){
+        raiz1 = (-b + Math.sqrt(delta) )/(2*a);
+        raiz2 = (-b - Math.sqrt(delta) )/(2*a);
 
-        alert(`Suas notas: \n nota 1: ${n1} \n nota 2: ${n2} \n Média: ${media} \n Conceito: ${conceito} \n Resultado: ${aprovacao}`)
-        
+        ans.innerHTML = "Raiz 1: " + raiz1 + "<br/>" +"Raiz 2: " + raiz2;
+       }else{
+        if (delta==0){
+         raiz = (-b + Math.sqrt(delta) )/(2*a);
+         ans.innerHTML="Raiz dupla: " + raiz;
+        }else{
+         real = (-b)/(2*a);
+         img1  = Math.sqrt(-delta)/(2*a);
+         img2  = - Math.sqrt(-delta)/(2*a);
+
+         ans.innerHTML = "Raiz 1: " + real + "+" + img1+"i"+"<br/>" +
+             "Raiz 2: " + real + "+" + img2+"i"
+        }
+       }
+     }
     </script>
-</body>
+ 
+     </body>
+   
+ </head>
 </html>
